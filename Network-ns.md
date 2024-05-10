@@ -33,7 +33,7 @@ iptables -A FORWARD -i lo -o eth0 -j ACCEPT
 
  Each physical Ethernet interface can be assigned one or more IP addresses, depending on the network configuration. These IP addresses are used to uniquely identify the interface on the network and facilitate communication with other devices. IP addresses can be assigned statically (manually) or dynamically (via DHCP).
 
- ### Learnings
+ ## Learnings
  1. Understood how to create custom network namespace.
  2. Different commands related to network namespace.
 
