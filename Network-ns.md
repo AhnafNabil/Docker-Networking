@@ -2,7 +2,7 @@
 
 The Network namespace isolates the system’s physical network from the virtual network namespace within a single system. Each network namespace has its own interfaces, routing tables, forwarding rules, etc. Processes can be launched and dedicated to one network namespace.
 
-<img src="./images/Root-network-Namesace.png" width="600" height="800">
+<img src="./images/Root-network-Namesace.png" width="600" height="600">
 
 ## Routes
 
