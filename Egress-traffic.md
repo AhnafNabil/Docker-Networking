@@ -2,6 +2,20 @@
 
 "Egress traffic" refers to network traffic that is leaving or exiting a network or network segment. In other words, it's the data packets that are being transmitted from a source within a network to a destination outside of that network.
 
+We cannot connect to Google DNS using the private ip of the namespace. So, we have to change the firewall rules in order to allow all traffic to pass through the br0 interface without any restrictions.  
+
+```bash
+sudo iptables -t nat -A POSTROUTING -s 192.168.0.0/16 -j MASQUERADE
+```
+
+-t nat : Specifies the table to which the rule should be added. In this case, it's the NAT (Network Address Translation) table.
+
+-A POSTROUTING : Appends the rule to the POSTROUTING chain of the specified table.
+
+-s 192.168.0.0/16 : Specifies the source IP address range for which the rule should apply. In this case, it's the entire subnet 192.168.0.0/16.
+
+-j MASQUERADE : Specifies the action to take if the packet matches the criteria defined in the rule. In this case, it's MASQUERADE, which means to masquerade (i.e., rewrite) the source IP address of the packets to match the IP address of the outgoing interface.
+
 ## Steps
 
 1. Create a custom network namespace and a bridge.
